@@ -34,3 +34,7 @@ linkrandomyou += alpha[randomalpha];
 var linki = document.getElementById('linkrandom');
 linki.setAttribute('href', thing);
 
+if (document.getElementById("linkrandom2")!=null){
+var linki2 = document.getElementById('linkrandom2');
+linki2.setAttribute('href', thing);
+}
