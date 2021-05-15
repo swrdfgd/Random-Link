@@ -28,7 +28,7 @@ function modInverse(a, m) {
 }
 
 function psudo(array, urutan){
-  var metode = Math.ceil(Math.random()*10);
+  var metode = Math.ceil(Math.random()*11);
   var bilangan = array[urutan];
   var bilangan2 = array[(urutan + 1)%array.length];
   var bilangan3 = array[(urutan + 2)%array.length];
@@ -92,6 +92,10 @@ function psudo(array, urutan){
       bilangan = (bilangan2*modInverse(bilangan, bilangan4) + bilangan3)%bilangan4;
     }
   }  
+
+  if (metode == 11){
+    bilangan = (bilangan%bilangan2) + 1;
+  }
   
   bilangan = bilangan + 1;
   return bilangan
