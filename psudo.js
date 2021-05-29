@@ -58,7 +58,7 @@ function psudo(array, urutan){
   }  
   
   if (metode == 5){
-    bilangan = abs((bilangan-bilangan2)%bilangan3)
+    bilangan = Math.abs((bilangan-bilangan2)%bilangan3)
   }  
   
   if (metode == 6){
