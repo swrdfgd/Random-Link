@@ -80,7 +80,7 @@ function psudo(array, urutan){
     var s2 = (bilangan4*bilangan5)%bilangan6;
     var s3 = (bilangan7*bilangan8)%bilangan9;
     var r = (s1/bilangan3 + s2/bilangan6 + s3/bilangan9)%1;
-    bilangan = Math.ceil(r*(10**9))+1;
+    bilangan = Math.ceil(r*(10**9));
   }  
   
   if (metode == 9){
@@ -94,7 +94,7 @@ function psudo(array, urutan){
   }  
 
   if (metode == 11){
-    bilangan = (bilangan%bilangan2) + 1;
+    bilangan = (bilangan%bilangan2);
   }
   
   bilangan = bilangan + 1;
