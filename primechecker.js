@@ -1,5 +1,15 @@
 daftarbilanganprima = []; iput = 0;
 
+function color7(a){
+
+var puluhpuluh = Math.floor(a/10);
+var satuana = a%10;
+var hasilwarna = '<span style="color:red">' + puluhpuluh + '</span><span style="color:blue">' + satuana + '</span>';
+
+
+return [hasilwarna, puluhpuluh, satuana];
+}
+
 function digsum(a){
 var digitt = [];
 var banyakdigit = a.toString().length;
@@ -65,6 +75,8 @@ if ((keprimaan == 0) && (iput%2 == 0)){hasiltes = hasiltes + '<br>The last digit
 if ((keprimaan == 0) && (iput%5 == 0)){hasiltes = hasiltes + '<br>The last digit is 5 therefore ' + iput + ' is divisible by 5. So, ' + iput + ' is a composite number.'; keprimaan = -1;}
 
 if ((keprimaan == 0) && (iput%3 == 0)){hasiltes = hasiltes + '<br>The sum of the digits, ' + digsum(iput)[0] + ' = ' + digsum(iput)[1] + ' is divisible by 3. So, ' + iput + ' is also divisible by 3. Therefore, it is a composite number.'; keprimaan = -1;}
+
+if ((keprimaan == 0) && (iput%7 == 0)){hasiltes = hasiltes + '<br>'+ color7(iput)[0] + ' is divisible by 7 if and only if <span style="color:red">' + color7(iput)[1] + '</span> - 2(<span style="color:blue">' + color7(iput)[2] + '</span>) = ' + (color7(iput)[1]-2*color7(iput)[2]) + ' is divisible by 7. Since ' + (color7(iput)[1]-2*color7(iput)[2]) + ' is divisible by 7, then ' + iput + ' is also divisible by 7. Therefore, it is a composite number.'; keprimaan = -1;}
 
 }
 
