@@ -72,7 +72,7 @@ if ((keprimaan == 0) && (iput%3 == 0)){hasiltes = hasiltes + '<br>The sum of the
 }
 
 document.getElementById("hasiltes").innerHTML = hasiltes;
-if (hasiltes == ''){document.getElementById("hasiltes").innerHTML = 'Sorry, I am not sure, is it a prime number or not? I am still in development.'}
+if (keprimaan == 0){document.getElementById("hasiltes").innerHTML = 'Sorry, I am not sure, is it a prime number or not? I am still in development.'}
 document.getElementById("hasiltes").style.color = "#000000"
 };
 
