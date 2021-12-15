@@ -37,7 +37,7 @@ function cekinput(){
 document.getElementById("hasiltes").style.color = "#ff0000"
 
 iput = Number(document.getElementById("number").value);
-if (isNaN(iput) || iput == '') {
+if (isNaN(iput) || document.getElementById("number").value === '') {
 resetulang();
 document.getElementById("hasiltes").innerHTML = 'Please input number';
 }
@@ -78,15 +78,25 @@ if ((keprimaan == 0) && (iput%3 == 0)){hasiltes = hasiltes + '<br>The sum of the
 
 if ((keprimaan == 0) && (iput%7 == 0)){hasiltes = hasiltes + '<br>'+ color7(iput)[0] + ' is divisible by 7 if and only if <span style="color:red">' + color7(iput)[1] + '</span> - 2(<span style="color:blue">' + color7(iput)[2] + '</span>) = ' + (color7(iput)[1]-2*color7(iput)[2]) + ' is divisible by 7. Since ' + (color7(iput)[1]-2*color7(iput)[2]) + ' is divisible by 7, then ' + iput + ' is also divisible by 7. Therefore, it is a composite number.'; keprimaan = -1;}
 
+if ((keprimaan == 0) && (himprima.includes(iput))){hasiltes = hasiltes + '<br>Yes, ' + iput + ' is a prime number, it is included in our precalculated data lists.'; keprimaan = 1;}
+
+var himprimaTemp = []; himprimaTemp = himprima;
+while ((keprimaan == 0) && (himprimaTemp.length > 0) && (himprimaTemp[0]<=Math.sqrt(iput))) {hasiltes += `<br>Checking divisibility with ${himprimaTemp[0]}...`; if (iput%himprimaTemp[0] == 0) {hasiltes += `<br>${iput} = ${himprimaTemp[0]} × ${iput/himprimaTemp[0]}<br>${iput} is divisible by ${himprimaTemp[0]}, therefore ${iput} is a composite number.`; keprimaan = -1} else {hasiltes += `<br>${iput} = ${himprimaTemp[0]} × ${iput/himprimaTemp[0]}<br>${iput} is not divisible by ${himprimaTemp[0]}.`;himprimaTemp.shift();}}
+if ((keprimaan == 0) && (himprimaTemp.length > 0) && (Math.sqrt(iput) <= 2939)) {hasiltes += `Every prime number below square root of ${iput} are checked. No divisor is found. So, ${iput} is a prime number.`; keprimaan = 1;}
+
+
 }
 
 
 }
 
 document.getElementById("hasiltes").innerHTML = hasiltes;
+if ((iput > Number.MAX_SAFE_INTEGER) || (Number(document.getElementById("number").value) < Number.MIN_SAFE_INTEGER)){keprimaan = 0}
 if (keprimaan == 0){document.getElementById("hasiltes").innerHTML = 'Sorry, I am not sure, is it a prime number or not? I am still in development.'}
 document.getElementById("hasiltes").style.color = "#000000"
 };
+
+
 
 function resetulang(){
 document.getElementById("hasiltes").innerHTML = ""
