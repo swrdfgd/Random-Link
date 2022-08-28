@@ -104,7 +104,8 @@ function psudo(array, urutan){
   if (metode == 13){
     bilangan = (bilangan*bilangan)%(bilangan2*bilangan3);
   }  
-
+  
+  bilangan = Math.abs(bilangan);
   bilangan = bilangan + 1;
   return bilangan
 }
